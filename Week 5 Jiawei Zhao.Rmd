@@ -1,0 +1,34 @@
+---
+title: "ANA 515 Week 5"
+author: "Jiawei Zhao"
+date: "2024-06-23"
+output: word_document
+---
+
+```{r, echo=TRUE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+```
+
+```{r, echo=TRUE}
+drinks <- read.csv ("https://raw.githubusercontent.com/fivethirtyeight/data/master/alcohol-consumption/drinks.csv")
+```
+
+```{r, echo=TRUE}
+# Calculate average consumption per continent
+# Bar plot
+ggplot(drinks, aes(x = country, y = beer_servings)) +
+  geom_bar(stat = "identity", fill = "skyblue") +
+  labs(title = "Beer Servings by Country", x = "Country", y = "Beer Servings") +
+  theme_minimal()
+```
+
+```{r, echo=TRUE}
+# Scatter plot
+ggplot(drinks, aes(x = wine_servings, y = total_litres_of_pure_alcohol)) +
+  geom_point(color = "darkred") +
+  labs(title = "Wine Servings vs Total Alcohol Consumption", x = "Wine Servings", y = "Total Alcohol Consumption") +
+  theme_minimal()
+
+```
+
